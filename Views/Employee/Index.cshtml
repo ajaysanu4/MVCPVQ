@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MVCTEST.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.empno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.empname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.empsal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.empno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.empname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.empsal)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.empno  }) |
+            @Html.ActionLink("Details", "Details", new { id=item.empno }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.empno })
+        </td>
+    </tr>
+}
+
+</table>
